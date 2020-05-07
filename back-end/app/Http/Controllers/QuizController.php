@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Quiz;
-
+use JWTAuth;
 class QuizController extends Controller
 {
     public function getAll()
@@ -14,7 +14,9 @@ class QuizController extends Controller
 
     public function index()
     {
-        return Quiz::where('userId', 1)->get();
+        $payload = JWTAuth::parseToken()->getPayload();
+        $userId = $payload->get('sub');
+        return Quiz::where('userId', $userId)->get();
     }
 
     public function show($id)
@@ -25,8 +27,11 @@ class QuizController extends Controller
 
     public function store(Request $request)
     {
+        $payload = JWTAuth::parseToken()->getPayload();
+        $userId = $payload->get('sub');
         $quiz = Quiz::create([
             'title' =>  $request->get('title'),
+            'userId' => $userId
         ]);
         return response()->json($quiz, 201);
     }
