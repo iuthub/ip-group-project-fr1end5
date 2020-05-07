@@ -11,5 +11,10 @@ export class QuestionComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  question:  string;
+
+post(){
+  console.log('this.question');
+}
 
 }
