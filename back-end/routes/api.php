@@ -13,7 +13,11 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::post('/register', 'AuthController@register');
+Route::post('/login', 'AuthController@login');
+Route::get('quizzes/all', 'QuizController@getAll');
 
+Route::group(['middleware' => ['jwt.verify']], function() {
     Route::get('questions', 'QuestionController@getAll');
     Route::get('questions/{id}', 'QuestionController@getOne');
     Route::post('questions', 'QuestionController@store');
@@ -25,4 +29,6 @@ use Illuminate\Support\Facades\Route;
     Route::post('quizzes', 'QuizController@store');
     Route::put('quizzes/{id}', 'QuizController@update');
     Route::delete('quizzes/{id}', 'QuizController@delete');
+});
+
 
