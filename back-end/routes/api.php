@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 Route::post('/register', 'AuthController@register');
 Route::post('/login', 'AuthController@login');
+Route::get('quizzes/all', 'QuizController@getAll');
 
+Route::group(['middleware' => ['jwt.verify']], function() {
     Route::get('questions', 'QuestionController@getAll');
     Route::get('questions/{id}', 'QuestionController@getOne');
     Route::post('questions', 'QuestionController@store');
@@ -27,4 +29,6 @@ Route::post('/login', 'AuthController@login');
     Route::post('quizzes', 'QuizController@store');
     Route::put('quizzes/{id}', 'QuizController@update');
     Route::delete('quizzes/{id}', 'QuizController@delete');
+});
+
 
