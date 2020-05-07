@@ -14,6 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+    Route::get('questions', 'QuestionController@getAll');
+    Route::get('questions/{id}', 'QuestionController@getOne');
+    Route::post('questions', 'QuestionController@store');
+    Route::put('questions/{id}', 'QuestionController@update');
+    Route::delete('questions/{id}', 'QuestionController@delete');
+
+    Route::get('quizzes', 'QuizController@index');
+    Route::get('quizzes/{id}', 'QuizController@show');
+    Route::post('quizzes', 'QuizController@store');
+    Route::put('quizzes/{id}', 'QuizController@update');
+    Route::delete('quizzes/{id}', 'QuizController@delete');
+
