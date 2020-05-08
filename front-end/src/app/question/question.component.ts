@@ -9,14 +9,16 @@ import {ApiService} from '../api.service';
 export class QuestionComponent implements OnInit {
   question = {
     text: '',
-    correctAnswer: ''
-  };
+    correctAnswer: '' ,
+    wrongAnswers: ['', '', '']
+  }
   constructor(private apiSvc: ApiService) { }
 
   ngOnInit(): void {}
 
   post(){
-    console.log(this.question);
+  this.apiSvc.postQuestion(this.question);
+    //console.log(this.question);
   }
 
 }
