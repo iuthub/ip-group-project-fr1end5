@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ApiService} from '../api.service';
-import {strict} from 'assert';
 
 @Component({
   selector: 'app-question',
