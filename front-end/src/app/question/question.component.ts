@@ -9,9 +9,9 @@ export class QuestionComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
-  question:  string;
+  ngOnInit(): void {}
+  
+  question: string;
 
 post(){
   console.log('this.question');
