@@ -1,12 +1,16 @@
-<mat_card>
-  <mat_card_content>
+<mat-card>
+  <mat-card-content>
     <form>
-      <mat-form-field>
-        <input [(ngModel)]="question" name="question" matInput placeholder="Question">
+      <mat-form-field class="fullWidth">
+        <input [(ngModel)]="question.text" name="question" matInput placeholder="Question">
+      </mat-form-field>
+
+      <mat-form-field class="fullWidth">
+        <input [(ngModel)]="question.correctAnswer" name="correctAnswer" matInput placeholder="Correct answer">
       </mat-form-field>
     </form>
-  </mat_card_content>
-  <mat_card_action>
+  </mat-card-content>
+  <mat-card-action>
     <button (click)="post()" mat-button>Send</button>
-  </mat_card_action>
-</mat_card>
+  </mat-card-action>
+</mat-card>
