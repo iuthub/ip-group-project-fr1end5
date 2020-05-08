@@ -10,6 +10,7 @@ import {strict} from 'assert';
 export class QuestionComponent implements OnInit {
   question = {
     text: '',
+    correctAnswer: ''
   };
   constructor(private apiSvc: ApiService) { }
 
