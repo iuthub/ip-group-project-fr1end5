@@ -2,11 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {ApiService} from '../api.service';
 
 @Component({
-  selector: 'app-question',
+  selector: 'question',
   templateUrl: './question.component.html',
-  styleUrls: ['./question.component.css']
+  //styleUrls: ['./question.component.css']
 })
-export class QuestionComponent implements OnInit {
+export class QuestionComponent  {
   question = {
     text: '',
     correctAnswer: '' ,
@@ -14,7 +14,7 @@ export class QuestionComponent implements OnInit {
   }
   constructor(private apiSvc: ApiService) { }
 
-  ngOnInit(): void {}
+  //ngOnInit(): void {}
 
   post(){
   this.apiSvc.postQuestion(this.question);
