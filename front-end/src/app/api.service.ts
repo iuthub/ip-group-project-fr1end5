@@ -6,10 +6,18 @@ import {HttpClient} from '@angular/common/http';
 })
 export class ApiService {
 
-  constructor(private http: HttpClient) { }
+  private questionUrl: string;
+  private quizUrl: string;
+  private allQuizUrl: string;
 
-  postQuestion(question: string) {
-    this.http.post('', question).subscribe(res => {
+  constructor(private http: HttpClient) {
+    this.questionUrl = 'http://localhost:8000/api/questions';
+    this.quizUrl = 'http://localhost:8000/api/quizzes';
+    this.allQuizUrl = 'http://localhost:8000/api/quizzes/all';
+  }
+
+  postQuestion(question) {
+    this.http.post(this.questionUrl, question).subscribe(res => {
       console.log(res);
     });
   }

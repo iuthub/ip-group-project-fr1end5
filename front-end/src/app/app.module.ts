@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import {ApiService} from './api.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import {MatCardModule} from '@angular/material/card';
     MatInputModule,
     MatCardModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
