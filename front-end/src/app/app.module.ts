@@ -17,6 +17,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {NavbarComponent} from './navbar/navbar.component';
+import { QuizzesComponent } from './quizzes/quizzes.component';
 =======
 import { QuizComponent } from './quiz/quiz.component';
 
@@ -42,7 +43,8 @@ const routes = [
     QuestionsComponent,
 <<<<<<< Updated upstream
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    QuizzesComponent
 =======
     QuizComponent
 >>>>>>> Stashed changes
