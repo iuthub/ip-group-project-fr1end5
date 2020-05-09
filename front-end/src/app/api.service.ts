@@ -14,6 +14,7 @@ export class ApiService {
     this.questionUrl = 'http://localhost:8000/api/questions';
     this.quizUrl = 'http://localhost:8000/api/quizzes';
     this.allQuizUrl = 'http://localhost:8000/api/quizzes/all';
+ 
   }
 
   postQuestion(question) {
@@ -21,4 +22,9 @@ export class ApiService {
       console.log(res);
     });
   }
+
+  getQuestions() {
+    return this.http.get(this.questionUrl);
+  }
+
 }

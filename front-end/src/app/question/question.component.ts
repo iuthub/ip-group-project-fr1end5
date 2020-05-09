@@ -4,7 +4,7 @@ import {ApiService} from '../api.service';
 @Component({
   selector: 'question',
   templateUrl: './question.component.html',
-  //styleUrls: ['./question.component.css']
+  styleUrls: ['./question.component.css']
 })
 export class QuestionComponent  {
   question = {
@@ -14,11 +14,11 @@ export class QuestionComponent  {
   }
   constructor(private apiSvc: ApiService) { }
 
-  //ngOnInit(): void {}
+  ngOnInit(): void {}
 
   post(){
   this.apiSvc.postQuestion(this.question);
-    //console.log(this.question);
+    console.log(this.question);
   }
 
 }
