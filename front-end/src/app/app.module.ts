@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {ApiService} from './api.service';
 import { QuestionsComponent } from './questions/questions.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { QuestionsComponent } from './questions/questions.component';
     MatButtonModule,
     MatInputModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+   MatToolbarModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

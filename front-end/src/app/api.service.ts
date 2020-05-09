@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Subject} from 'rxjs';
-import {Question} from '.. /question';
+import {Question} from '../model /question';
 
 
 @Injectable({
@@ -9,7 +9,7 @@ import {Question} from '.. /question';
 })
 
 export class ApiService {
-  private selectedQuestion =new Subject<Question>();
+  private selectedQuestion = new Subject<Question>();
   private questionUrl: string;
   private quizUrl: string;
   private allQuizUrl: string;

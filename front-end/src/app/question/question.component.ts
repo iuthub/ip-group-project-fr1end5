@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit,OnDestroy} from '@angular/core';
 import {ApiService} from '../api.service';
-import {Question} from '../question';
+import {Question} from '../model/question';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'question',
