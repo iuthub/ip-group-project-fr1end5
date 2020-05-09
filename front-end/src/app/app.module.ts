@@ -14,9 +14,11 @@ import {ApiService} from './api.service';
 import { QuestionsComponent } from './questions/questions.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import {HomeComponent} from './home/home.component';
+import {NavbarComponent} from './navbar/navbar.component';
 
-const routes =[
+
+const routes = [
   {path: 'question', component: QuestionComponent},
   {path: 'questions', component: QuestionsComponent},
   {path: '', component: HomeComponent}
@@ -26,8 +28,8 @@ const routes =[
     AppComponent,
     QuestionComponent,
     QuestionsComponent,
-    HomeComponent
-
+    HomeComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -39,11 +41,9 @@ const routes =[
     MatInputModule,
     MatListModule,
     MatCardModule,
-   MatToolbarModule,
+    MatToolbarModule,
     RouterModule.forRoot(routes),
     MatToolbarModule
-
-
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
