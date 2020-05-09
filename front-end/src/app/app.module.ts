@@ -13,12 +13,21 @@ import {MatCardModule} from '@angular/material/card';
 import {ApiService} from './api.service';
 import { QuestionsComponent } from './questions/questions.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
 
+const routes =[
+  {path: 'question', component: QuestionComponent},
+  {path: 'questions', component: QuestionsComponent},
+  {path: '', component: HomeComponent}
+];
 @NgModule({
   declarations: [
     AppComponent,
     QuestionComponent,
-    QuestionsComponent
+    QuestionsComponent,
+    HomeComponent
+
   ],
   imports: [
     BrowserModule,
@@ -30,7 +39,11 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatInputModule,
     MatListModule,
     MatCardModule,
-   MatToolbarModule
+   MatToolbarModule,
+    RouterModule.forRoot(routes),
+    MatToolbarModule
+
+
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
