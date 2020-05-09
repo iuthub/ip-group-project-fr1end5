@@ -2,11 +2,11 @@
   <mat-card-content>
     
   </mat-card-content>
-  <mat-card-action>
+  <mat-card-actions>
     <mat-list *ngFor="let question of questions">
 
-    	<mat-list-item>  {{question.text}} </mat-list-item>
+    	<mat-list-item class="clickItem " (click)= "apiSvc.selectQuestion(question)">  {{question.text}} </mat-list-item>
 
     </mat-list>
-  </mat-card-action>
+  </mat-card-actions>
 </mat-card>
