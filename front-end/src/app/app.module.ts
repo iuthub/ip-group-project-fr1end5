@@ -13,9 +13,21 @@ import {MatCardModule} from '@angular/material/card';
 import {ApiService} from './api.service';
 import { QuestionsComponent } from './questions/questions.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
+<<<<<<< Updated upstream
 import { RouterModule } from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {NavbarComponent} from './navbar/navbar.component';
+=======
+import { QuizComponent } from './quiz/quiz.component';
+
+const routes=[
+  {path:'question',component: QuestionComponent},
+  {path:'questions',component: QuestionsComponent},
+  {path:'quiz',component: QuizComponent},
+  {path:'',component: HomeComponent},
+]
+
+>>>>>>> Stashed changes
 
 
 const routes = [
@@ -28,8 +40,12 @@ const routes = [
     AppComponent,
     QuestionComponent,
     QuestionsComponent,
+<<<<<<< Updated upstream
     HomeComponent,
     NavbarComponent
+=======
+    QuizComponent
+>>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,

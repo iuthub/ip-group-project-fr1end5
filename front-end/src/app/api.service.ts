@@ -37,8 +37,19 @@ export class ApiService {
       console.log(res);
     });
   }
+  postQuiz(quiz: Quiz ) {
+    this.http.post(this.quizzesUrl, quizzes).subscribe(res => {
+      console.log(res);
+    });
+  }
+
+putQuiz(quiz: Quiz) {
+    this.http.post(this.quizzesUrl + quizzes.id , quizzes).subscribe(res => {
+      console.log(res);
+    });
+  }
   getQuestions() {
-    return this.http.get(this.questionUrl);
+    return this.http.get(this.quizzesUrl);
   }
 
 }
