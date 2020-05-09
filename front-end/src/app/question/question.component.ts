@@ -16,15 +16,10 @@ export class QuestionComponent implements OnInit, OnDestroy {
 
   constructor(private apiSvc: ApiService) { }
 
-  resetQuestion(){
-  this.question = new Question ();
-
-  }
   ngOnInit(): void {
-  this.subscription = this.apiSvc.getSelectedQuestion().subscribe(q => {
-  this.question = q;
-});
-
+      this.subscription = this.apiSvc.getSelectedQuestion().subscribe(q => {
+            this.question = q;
+      });
   }
 
   ngOnDestroy(){
@@ -38,6 +33,10 @@ export class QuestionComponent implements OnInit, OnDestroy {
     else {
        this.apiSvc.postQuestion(this.question);
   }
+  }
+
+  resetQuestion(){
+    this.question = new Question ();
   }
 
 }

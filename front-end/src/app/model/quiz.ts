@@ -1,7 +1,5 @@
-export	class Quiz {
-	
-	consructor() {}
-	id: number;
-	title: string;
-	
+export class Quiz {
+  id: number;
+  title: string;
+  constructor() {}
 }

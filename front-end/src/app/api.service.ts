@@ -8,11 +8,13 @@ import { Quiz } from './model/quiz';
   providedIn: 'root'
 })
 export class ApiService {
-  private selectedQuestion = new Subject<Question>();
-  private selectedQuiz = new Subject<Quiz>();
   private questionUrl: string;
   private quizUrl: string;
   private allQuizUrl: string;
+  private selectedQuestion = new Subject<Question>();
+  private selectedQuiz = new Subject<Quiz>();
+  private newQuiz = new Subject<Quiz>();
+  private newQuestion = new Subject<Question>();
 
   constructor(private http: HttpClient) {
     this.questionUrl = 'http://localhost:8000/api/questions';
@@ -20,46 +22,79 @@ export class ApiService {
     this.allQuizUrl = 'http://localhost:8000/api/quizzes/all';
   }
 
+
+  // Question
   selectQuestion(question: Question) {
     this.selectedQuestion.next(question);
   }
-  selectQuiz(quiz: Quiz) {
-    this.selectedQuiz.next(quiz);
-  }
-  getSelectedQuestion(){
+
+  getSelectedQuestion() {
     return this.selectedQuestion.asObservable();
   }
-  getSelectedQuiz(){
-    return this.selectedQuiz.asObservable();
+
+  getQuestions(quizId) {
+    return this.http.get(`${this.questionUrl}/${quizId}`);
   }
 
-  postQuestion(question: Question ) {
-    this.http.post(this.questionUrl, question).subscribe(res => {
-      console.log(res);
-    });
+  postQuestion(question: Question) {
+    this.http.post(this.questionUrl, question)
+      .subscribe((res) => {
+        this.addNewQuestion(res as Question);
+      });
   }
 
   putQuestion(question: Question) {
-    this.http.post(this.questionUrl + question.id , question).subscribe(res => {
-      console.log(res);
-    });
-  }
-  postQuiz(quiz: Quiz ) {
-    this.http.post(this.quizzesUrl, quizzes).subscribe(res => {
-      console.log(res);
-    });
+    this.http.put(`${this.questionUrl}/${question.id}`, question)
+      .subscribe((res) => {
+        console.log(res);
+      });
   }
 
-putQuiz(quiz: Quiz) {
-    this.http.post(this.quizzesUrl + quizzes.id , quizzes).subscribe(res => {
-      console.log(res);
-    });
-  }
-  getQuestions() {
-    return this.http.get(this.quizzesUrl);
-  }
-  getQuiz() {
-    return this.http.get('http://localhost:8000/api/quizzes');
+  getNewQuestion() {
+    return this.newQuestion.asObservable();
   }
 
+  addNewQuestion(question: Question) {
+    return this.newQuestion.next(question);
+  }
+
+  // Quiz
+  selectQuiz(quiz: Quiz) {
+    this.selectedQuiz.next(quiz);
+  }
+
+  getSelectedQuiz() {
+    return this.selectedQuiz.asObservable();
+  }
+
+  getQuizzes() {
+    return this.http.get(this.quizUrl);
+  }
+
+  postQuiz(quiz: Quiz) {
+    this.http.post(this.quizUrl, quiz)
+      .subscribe((res) => {
+        this.addNewQuiz(res as Quiz);
+        console.log(res);
+      });
+  }
+
+  putQuiz(quiz: Quiz) {
+    this.http.put(`${this.quizUrl}/${quiz.id}`, quiz)
+      .subscribe((res) => {
+        console.log(res);
+      });
+  }
+
+  getNewQuiz() {
+    return this.newQuiz.asObservable();
+  }
+
+  addNewQuiz(quiz: Quiz) {
+    return this.newQuiz.next(quiz);
+  }
+
+  getAllQuizzes() {
+    return this.http.get(this.allQuizUrl);
+  }
 }

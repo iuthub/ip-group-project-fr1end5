@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/api.service';
+import {ApiService} from '../api.service';
+
 
 @Component({
   selector: 'app-quizzes',
@@ -12,10 +13,9 @@ export class QuizzesComponent implements OnInit {
   constructor(private apiSvc: ApiService) { }
 
   ngOnInit() {
-    
       this.apiSvc.getQuizzes().subscribe(result => {
         this.quizzes = result;
-      })
+      });
   }
 
 }
