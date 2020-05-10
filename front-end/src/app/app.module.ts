@@ -23,6 +23,9 @@ import {AuthService} from './services/auth.service';
 import {AuthInterceptorService} from './services/auth-interceptor.service';
 import { LoginComponent } from './login/login.component';
 import { PlayComponent } from './play/play.component';
+import { PlayQuizComponent } from './play-quiz/play-quiz.component';
+import { MatExpansionModule} from '@angular/material/expansion';
+
 
 const routes = [
   {path: 'question', component: QuestionComponent},
@@ -33,6 +36,7 @@ const routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'play', component: PlayComponent},
+  {path: 'playQuiz/:quizId', component: PlayQuizComponent},
 ];
 
 @NgModule({
@@ -46,7 +50,8 @@ const routes = [
     QuizComponent,
     RegisterComponent,
     LoginComponent,
-    PlayComponent
+    PlayComponent,
+    PlayQuizComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +67,8 @@ const routes = [
     RouterModule.forRoot(routes),
     MatToolbarModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatExpansionModule 
   ],
   providers: [
     ApiService,
