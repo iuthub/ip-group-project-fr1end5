@@ -23,7 +23,7 @@ export class ApiService {
   }
 
 
-  // Question
+  Question
   selectQuestion(question: Question) {
     this.selectedQuestion.next(question);
   }
@@ -58,7 +58,7 @@ export class ApiService {
     return this.newQuestion.next(question);
   }
 
-  // Quiz
+   Quiz
   selectQuiz(quiz: Quiz) {
     this.selectedQuiz.next(quiz);
   }

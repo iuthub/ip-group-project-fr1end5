@@ -2,6 +2,7 @@ import {Component, OnInit, OnDestroy} from '@angular/core';
 import {ApiService} from '../api.service';
 import {Question} from '../model/question';
 import {Subscription} from 'rxjs';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-question',
@@ -14,11 +15,12 @@ export class QuestionComponent implements OnInit, OnDestroy {
 
   subscription: Subscription;
 
-  constructor(private apiSvc: ApiService) { }
+  constructor(private apiSvc: ApiService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
       this.subscription = this.apiSvc.getSelectedQuestion().subscribe(q => {
             this.question = q;
+            this.question.quizid=this.route.snapshot.paramMap.get('quizid'); 
       });
   }
 

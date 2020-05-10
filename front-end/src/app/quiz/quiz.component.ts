@@ -24,7 +24,8 @@ export class QuizComponent implements OnInit, OnDestroy {
   }
 
   navigateToQuestions(){
-    this.router.navigate(['/question']);
+    this.router.navigate(['/question/' + this.quiz.id ]);
+
   }
 
   post() {
