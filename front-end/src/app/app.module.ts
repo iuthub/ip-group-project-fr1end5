@@ -26,6 +26,7 @@ const routes = [
   {path: 'questions', component: QuestionsComponent},
   {path: 'quiz', component: QuizComponent},
   {path: '', component: HomeComponent},
+  {path: 'register', component: RegisterComponent}
 ];
 
 @NgModule({
@@ -51,7 +52,9 @@ const routes = [
     MatCardModule,
     MatToolbarModule,
     RouterModule.forRoot(routes),
-    MatToolbarModule
+    MatToolbarModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
