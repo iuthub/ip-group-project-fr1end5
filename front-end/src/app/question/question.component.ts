@@ -18,9 +18,10 @@ export class QuestionComponent implements OnInit, OnDestroy {
   constructor(private apiSvc: ApiService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+      this.question.quizid=this.route.snapshot.paramMap.get('quizid');
       this.subscription = this.apiSvc.getSelectedQuestion().subscribe(q => {
             this.question = q;
-            this.question.quizid=this.route.snapshot.paramMap.get('quizid'); 
+             
       });
   }
 

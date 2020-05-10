@@ -34,6 +34,8 @@ export class ApiService {
 
   getQuestions(quizId) {
     return this.http.get(`${this.questionUrl}/${quizId}`);
+
+
   }
 
   postQuestion(question: Question) {
@@ -82,6 +84,7 @@ export class ApiService {
   putQuiz(quiz: Quiz) {
     this.http.put(`${this.quizUrl}/${quiz.id}`, quiz)
       .subscribe((res) => {
+        this.addNewQuiz(res as Quiz);
         console.log(res);
       });
   }

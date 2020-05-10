@@ -16,6 +16,9 @@ export class QuizzesComponent implements OnInit {
       this.apiSvc.getQuizzes().subscribe(result => {
         this.quizzes = result;
       });
+      this.apiSvc.getNewQuiz().subscribe(newQuiz=>{
+      this.quizzes.push(newQuiz);
+      })
   }
 
 }
