@@ -21,6 +21,7 @@ import {RouterModule} from '@angular/router';
 import { RegisterComponent } from './register/register.component';
 import {AuthService} from './services/auth.service';
 import {AuthInterceptorService} from './services/auth-interceptor.service';
+import { LoginComponent } from './login/login.component';
 
 const routes = [
   {path: 'question', component: QuestionComponent},
@@ -28,7 +29,8 @@ const routes = [
   {path: 'questions', component: QuestionsComponent},
   {path: 'quiz', component: QuizComponent},
   {path: '', component: HomeComponent},
-  {path: 'register', component: RegisterComponent}
+  {path: 'register', component: RegisterComponent},
+  {path: 'login', component: LoginComponent}
 ];
 
 @NgModule({
@@ -40,7 +42,8 @@ const routes = [
     NavbarComponent,
     QuizzesComponent,
     QuizComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

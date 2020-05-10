@@ -10,12 +10,13 @@ import {AuthService} from '../services/auth.service';
 export class RegisterComponent implements OnInit {
 
   registerForm;
+
   constructor(private fb: FormBuilder, private auth: AuthService) {
     this.registerForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required]
-    });
+    })
   }
 
   ngOnInit(): void {

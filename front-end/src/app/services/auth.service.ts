@@ -10,17 +10,19 @@ export class AuthService {
   private registerUrl: string;
   private loginUrl: string;
   private logoutUrl: string;
+  
   constructor(private http: HttpClient, private router: Router) {
     this.registerUrl = 'http://localhost:8000/api/register';
     this.loginUrl = 'http://localhost:8000/api/login';
   }
+  
 
   get isAuthenticated() {
     return !!localStorage.getItem('token');
   }
 
   register(credentials) {
-    this.http.post<any>(this.registerUrl, credentials).subscribe(res => {
+    this.http.post<any>(this.loginUrl, credentials).subscribe(res => {
       this.afterLogin(res);
     });
   }
