@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Subject} from 'rxjs';
-import {Question} from './model/question';
-import { Quiz } from './model/quiz';
+import {Question} from '../model/question';
+import { Quiz } from '../model/quiz';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +23,7 @@ export class ApiService {
   }
 
 
-  Question
+  // Question
   selectQuestion(question: Question) {
     this.selectedQuestion.next(question);
   }
@@ -60,7 +60,7 @@ export class ApiService {
     return this.newQuestion.next(question);
   }
 
-   Quiz
+   //  Quiz
   selectQuiz(quiz: Quiz) {
     this.selectedQuiz.next(quiz);
   }

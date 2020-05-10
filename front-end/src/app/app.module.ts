@@ -7,10 +7,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
-import {ApiService} from './api.service';
+import {ApiService} from './services/api.service';
 import { QuestionsComponent } from './questions/questions.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {QuizComponent} from './quiz/quiz.component';
@@ -19,7 +19,8 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {QuizzesComponent} from './quizzes/quizzes.component';
 import {RouterModule} from '@angular/router';
 import { RegisterComponent } from './register/register.component';
-import {AuthService} from './auth.service';
+import {AuthService} from './services/auth.service';
+import {AuthInterceptorService} from './services/auth-interceptor.service';
 
 const routes = [
   {path: 'question', component: QuestionComponent},
@@ -57,11 +58,15 @@ const routes = [
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [ApiService, AuthService, {
-  provide: HTTP_INTERCEPTORS,
-  useClass: AuthInterceptorService,
-  multi: true
-  }],
+  providers: [
+    ApiService,
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

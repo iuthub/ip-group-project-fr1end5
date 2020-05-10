@@ -1,5 +1,5 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
-import {ApiService} from '../api.service';
+import {ApiService} from '../services/api.service';
 import {Question} from '../model/question';
 import {Subscription} from 'rxjs';
 import {ActivatedRoute} from '@angular/router';
@@ -21,7 +21,7 @@ export class QuestionComponent implements OnInit, OnDestroy {
       this.question.quizid=this.route.snapshot.paramMap.get('quizid');
       this.subscription = this.apiSvc.getSelectedQuestion().subscribe(q => {
             this.question = q;
-             
+
       });
   }
 

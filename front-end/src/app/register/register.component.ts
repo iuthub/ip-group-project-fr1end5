@@ -1,32 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { AuthService } from '../auth.service ';
-import {  Validators} from '@angular/forms';
+import {FormBuilder, Validators} from '@angular/forms';
+import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-
 export class RegisterComponent implements OnInit {
-   registerForm;
-   
-//BUGS HERE
-  constructor(private fb: FormBuilder, private: AuthService) { 
 
-  this.registerForm= this.fb.group({
-  email: ['', Validators.required],
-  password: ['', Validators.required]
-
-  })
+  registerForm;
+  constructor(private fb: FormBuilder, private auth: AuthService) {
+    this.registerForm = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    });
   }
-
 
   ngOnInit(): void {
   }
-register(){
-	this.auth.register(this.Form.value); 
-}
 
+  register() {
+    console.log(this.registerForm);
+    this.auth.register(this.registerForm.value);
+  }
 }

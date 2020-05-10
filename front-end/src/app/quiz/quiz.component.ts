@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import { Quiz } from '../model/quiz';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
-import {ApiService} from '../api.service';
+import {ApiService} from '../services/api.service';
 
 @Component({
   selector: 'app-quiz',
