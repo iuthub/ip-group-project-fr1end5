@@ -18,6 +18,7 @@ import {HomeComponent} from './home/home.component';
 import {NavbarComponent} from './navbar/navbar.component';
 import {QuizzesComponent} from './quizzes/quizzes.component';
 import {RouterModule} from '@angular/router';
+import { RegisterComponent } from './register/register.component';
 
 const routes = [
   {path: 'question', component: QuestionComponent},
@@ -35,7 +36,8 @@ const routes = [
     HomeComponent,
     NavbarComponent,
     QuizzesComponent,
-    QuizComponent
+    QuizComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
