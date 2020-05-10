@@ -19,6 +19,7 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {QuizzesComponent} from './quizzes/quizzes.component';
 import {RouterModule} from '@angular/router';
 import { RegisterComponent } from './register/register.component';
+import {AuthService} from './auth.service';
 
 const routes = [
   {path: 'question', component: QuestionComponent},
@@ -56,7 +57,11 @@ const routes = [
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [ApiService],
+  providers: [ApiService, AuthService, {
+  provide: HTTP_INTERCEPTORS,
+  useClass: AuthInterceptorService,
+  multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
