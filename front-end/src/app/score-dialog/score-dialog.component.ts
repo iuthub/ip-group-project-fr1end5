@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-score-dialog',
@@ -8,10 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class ScoreDialogComponent implements OnInit {
 
   constructor(
-public dialogRef: MatDialogRef<ScoreDialogComponent>,
-@Inject(MAT_DIALOG_DATA) public data
-
-  ) { }
+    public dialogRef: MatDialogRef<ScoreDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data) { }
 
   ngOnInit(): void {
   }

@@ -18,7 +18,7 @@ export class QuizzesComponent implements OnInit {
       });
       this.apiSvc.getNewQuiz().subscribe(newQuiz=>{
       this.quizzes.push(newQuiz);
-      })
+      });
   }
 
 }
