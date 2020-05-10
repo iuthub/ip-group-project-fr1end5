@@ -1,5 +1,6 @@
 <mat-toolbar>
   <button mat-button routerLink="/">Main Page</button>
+  <button mat-button routerLink="/play">Play</button>
   <span style="flex:auto"> </span>
   <button  *ngIf="!auth.Authenticated" mat-button routerLink="/register"> Register </button>
   <button  *ngIf="!auth.Authenticated" mat-button routerLink="/login"> Log in </button>

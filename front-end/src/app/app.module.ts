@@ -25,6 +25,7 @@ import { LoginComponent } from './login/login.component';
 import { PlayComponent } from './play/play.component';
 import { PlayQuizComponent } from './play-quiz/play-quiz.component';
 import { MatExpansionModule} from '@angular/material/expansion';
+import { ScoreDialogComponent } from './score-dialog/score-dialog.component';
 
 
 const routes = [
@@ -51,7 +52,8 @@ const routes = [
     RegisterComponent,
     LoginComponent,
     PlayComponent,
-    PlayQuizComponent
+    PlayQuizComponent,
+    ScoreDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +70,9 @@ const routes = [
     MatToolbarModule,
     FormsModule,
     ReactiveFormsModule,
-    MatExpansionModule 
+    MatExpansionModule, 
+    MatRadioModule,
+    MatDialogModule
   ],
   providers: [
     ApiService,
@@ -79,6 +83,9 @@ const routes = [
       multi: true
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    ScoreDialogComponent
+  ]
 })
 export class AppModule { }
